@@ -1,0 +1,76 @@
+---
+title: "CLASS OBSERVATION REPORT SCHOOL OF PROFESSIONAL STUDIES"
+output: word_document
+params:
+  ql: NA
+  sl: NA
+  inp: NA
+---
+
+Class: `r params$inp[[1]]`  
+
+Instructor: `r params$inp[[2]]`  
+
+Modality: `r params$inp[[3]]`  
+
+Class Date: `r params$inp[[4]]`  
+
+Start time:  `r params$inp[[5]]`  
+
+Arrival time: `r params$inp[[6]]`  
+
+Topic Covered: `r params$inp[[7]]`  
+
+
+```{r, echo=FALSE, results='asis'}
+# answers <- read.csv("data/Answer.csv")
+# questions <- read.csv("data/Question.csv")
+# results <- read.csv("data/Result.csv")
+# testQA <- cbind(questions, answers[,-c(1)])
+# test = testQA
+# selected = vector('list', length = nrow(testQA))
+# selected[[1]] <- list("a", "b")
+# selected[[17]] <- list("c", "dd")
+# 
+test = params$ql
+selected = params$sl
+last_section <- ''
+for (i in 1:nrow(test)) {
+  r = test[i, ]
+  n = r$Question
+  sec = r$Section
+  if (sec != last_section) {
+    cat(paste('\n\n', sec, '\n\n'))
+    last_section <- sec
+  }
+  # cat(n)
+  si = selected[[n]]
+  # str(si)
+  if (length(si) > 0) {
+    # cat(paste("\n\t-", si))
+    cat(paste(" ", si))
+    # cat('\n\n')
+  }
+  # cat('\n\n')
+}
+```
+
+ADDITIONAL COMMENTS:
+
+The professor was very diligent in all communications with the reviewer in setting up the observation date and making the course website available for review.
+
+
+Signature of Observer:  ___________________________________________Date:  __________
+
+Signature of Instructor:  __________________________________________Date:  ___________
+
+Legend
+
+Embedded in system
+
+Answers to fill-in the blank user input
+
+Selection form choices as answers to question for each section selected from the database of responses
+
+
+
